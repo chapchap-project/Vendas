@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import {
-  ShoppingBag, Shield, Users, BookOpen, Laptop, Sofa,
+  ShoppingBag, Shield, Users, Footprints, Laptop, Sofa,
   Star, ArrowRight, Check, MapPin, Menu, X, Tag,
   Zap, Lock, ChevronDown, MessageCircle, TrendingUp, Smartphone, Bell, Grid2X2, Heart, Home, Plus
 } from "lucide-react";
@@ -70,7 +70,7 @@ const FEATURES = [
 ];
 
 const CATEGORIES = [
-  { icon: BookOpen, name: "Textbooks", count: "Study essentials", color: "#8fb69b", bg: "#8fb69b1f" },
+  { icon: Footprints, name: "Shoes", count: "Fresh looks, less waste", color: "#8fb69b", bg: "#8fb69b1f" },
   { icon: Laptop, name: "Electronics", count: "Tech for student life", color: "#78a7a2", bg: "#78a7a21f" },
   { icon: Sofa, name: "Furniture", count: "Room and home finds", color: "#c49a6c", bg: "#c49a6c1f" },
   { icon: Tag, name: "Clothing", count: "Fresh looks, less waste", color: "#b77d8c", bg: "#b77d8c1f" },
@@ -109,7 +109,7 @@ function PhoneMockup() {
         style={{ background: "radial-gradient(ellipse at center, #4d8a68 0%, transparent 70%)" }} />
 
       {/* Phone shell */}
-      <div className="w-[280px] h-[580px] rounded-[44px] border-2 overflow-hidden shadow-2xl flex flex-col"
+      <div className="w-[238px] h-[495px] sm:w-[280px] sm:h-[580px] rounded-[38px] sm:rounded-[44px] border-2 overflow-hidden shadow-2xl flex flex-col"
         style={{ background: "#19352a", borderColor: "rgba(248,246,240,0.14)" }}>
         <img src={homepageScreenshot} alt="Vendas app home screen showing listings picked for the user" className="w-full h-full object-cover object-top" />
 
@@ -165,15 +165,15 @@ function PhoneMockup() {
       </div>
 
       {/* Floating chips */}
-      <div className="absolute -left-14 top-[22%] flex items-center gap-2 px-3 py-2 rounded-2xl shadow-xl text-xs font-bold"
+      <div className="hidden lg:flex absolute -left-14 top-[22%] items-center gap-2 px-3 py-2 rounded-2xl shadow-xl text-xs font-bold"
         style={{ background: "#d7e3d3", color: "#19352a" }}>
         <MapPin className="w-3.5 h-3.5" /> Your university
       </div>
-      <div className="absolute -right-12 top-[45%] flex items-center gap-2 px-3 py-2 rounded-2xl shadow-xl text-xs font-bold border"
+      <div className="hidden lg:flex absolute -right-12 top-[45%] items-center gap-2 px-3 py-2 rounded-2xl shadow-xl text-xs font-bold border"
         style={{ background: "#19352a", color: "#f8f6f0", borderColor: "rgba(255,255,255,0.1)" }}>
         <ShoppingBag className="w-3.5 h-3.5" /> Browse listings
       </div>
-      <div className="absolute -left-10 bottom-[28%] flex items-center gap-1.5 px-3 py-2 rounded-2xl shadow-xl text-xs font-bold"
+      <div className="hidden lg:flex absolute -left-10 bottom-[28%] items-center gap-1.5 px-3 py-2 rounded-2xl shadow-xl text-xs font-bold"
         style={{ background: "#567c66", color: "#fff" }}>
         <Plus className="w-3.5 h-3.5" /> Add a listing
       </div>
@@ -251,7 +251,7 @@ export default function App() {
       </nav>
 
       {/* ── HERO ── */}
-      <section className="relative min-h-screen flex items-center pt-20 pb-24 overflow-hidden">
+      <section className="relative md:min-h-screen flex items-center pt-28 md:pt-20 pb-16 md:pb-24 overflow-hidden">
         {/* Background orbs */}
         <div className="absolute -top-32 -left-32 w-[500px] h-[500px] rounded-full blur-3xl pointer-events-none opacity-20"
           style={{ background: "radial-gradient(circle, #4d8a68, transparent 70%)" }} />
@@ -261,16 +261,16 @@ export default function App() {
         <div className="absolute inset-0 pointer-events-none opacity-[0.03]"
           style={{ backgroundImage: "linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px)", backgroundSize: "60px 60px" }} />
 
-        <div className="relative z-10 max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 lg:gap-20 items-center">
+        <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-6 grid md:grid-cols-2 gap-12 lg:gap-20 items-center">
           {/* Left copy */}
           <div>
-            <div className="inline-flex items-center gap-2 px-3.5 py-2 rounded-full border text-xs font-bold uppercase tracking-widest mb-8 shadow-sm"
+            <div className="inline-flex items-center gap-2 px-3 py-2 rounded-full border text-[10px] sm:text-xs font-bold uppercase tracking-[0.14em] sm:tracking-widest mb-6 sm:mb-8 shadow-sm"
               style={{ background: "#d7e3d3", borderColor: "rgba(47,118,87,0.28)", color: "#1d5a40" }}>
               <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: "#2f7657" }} />
               Now launching for students
             </div>
 
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black leading-[1.02] mb-6"
+            <h1 className="text-[2.65rem] sm:text-6xl lg:text-7xl font-black leading-[1.04] mb-5 sm:mb-6"
               style={{ fontFamily: "var(--font-display)", color: "#19352a" }}>
               Your campus.<br />
               <span className="relative inline-block" style={{ color: "#2f7657" }}>
@@ -279,11 +279,11 @@ export default function App() {
               </span>
             </h1>
 
-            <p className="text-lg leading-relaxed mb-10 max-w-[440px]" style={{ color: "#607268" }}>
+            <p className="text-base sm:text-lg leading-relaxed mb-8 sm:mb-10 max-w-[440px]" style={{ color: "#607268" }}>
               Buy, sell, and discover student essentials in one place. Choose your university and explore items posted for your campus.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 mb-10">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-8 sm:mb-10">
               <a href="https://play.google.com/store/apps/details?id=com.chapchap.vendas"
                 target="_blank" rel="noopener noreferrer"
                 className="group inline-flex items-center justify-center gap-3 px-7 py-4 rounded-2xl font-bold text-base transition-all hover:opacity-90 hover:scale-105 active:scale-95 shadow-lg"
@@ -313,13 +313,13 @@ export default function App() {
           </div>
 
           {/* Right — phone */}
-          <div className="flex justify-center md:justify-end">
+          <div className="flex justify-center md:justify-end pt-2 sm:pt-0">
             <PhoneMockup />
           </div>
         </div>
 
         {/* Scroll nudge */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5" style={{ color: "#607268" }}>
+        <div className="hidden md:flex absolute bottom-8 left-1/2 -translate-x-1/2 flex-col items-center gap-1.5" style={{ color: "#607268" }}>
           <span className="text-[10px] tracking-[0.2em] uppercase font-medium">Scroll</span>
           <div className="w-5 h-8 rounded-full border flex items-start justify-center pt-1.5" style={{ borderColor: "rgba(25,53,42,0.20)" }}>
             <div className="w-1 h-1.5 rounded-full animate-bounce" style={{ background: "#607268" }} />
@@ -328,9 +328,9 @@ export default function App() {
       </section>
 
       {/* ── STARTER BENEFITS ── */}
-      <section className="py-14 border-y" style={{ background: "#dfe8dc", borderColor: "rgba(25,53,42,0.12)" }}>
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid md:grid-cols-3 gap-8">
+      <section className="py-12 sm:py-14 border-y" style={{ background: "#dfe8dc", borderColor: "rgba(25,53,42,0.12)" }}>
+        <div className="max-w-7xl mx-auto px-5 sm:px-6">
+          <div className="grid md:grid-cols-3 gap-6 sm:gap-8">
             {STARTER_BENEFITS.map(({ icon: Icon, title, desc }) => (
               <div key={title} className="flex items-start justify-center md:justify-start gap-4 text-center md:text-left">
                 <div className="w-11 h-11 rounded-2xl shrink-0 flex items-center justify-center" style={{ background: "rgba(47,118,87,0.11)", color: "#2f7657" }}>
@@ -347,22 +347,22 @@ export default function App() {
       </section>
 
       {/* ── HOW IT WORKS ── */}
-      <section id="how-it-works" className="py-24" style={{ background: "#eef1eb" }}>
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-16">
+      <section id="how-it-works" className="py-16 md:py-24" style={{ background: "#eef1eb" }}>
+        <div className="max-w-7xl mx-auto px-5 sm:px-6">
+          <div className="text-center mb-10 md:mb-16">
             <p className="text-xs font-bold uppercase tracking-[0.2em] mb-3" style={{ color: "#2f7657" }}>Simple Process</p>
-            <h2 className="text-4xl md:text-5xl font-black" style={{ fontFamily: "var(--font-display)", color: "#19352a", lineHeight: 1.1 }}>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black" style={{ fontFamily: "var(--font-display)", color: "#19352a", lineHeight: 1.1 }}>
               Three steps to<br />your first deal
             </h2>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-6 relative">
+          <div className="grid md:grid-cols-3 gap-4 sm:gap-6 relative">
             {/* Connector */}
             <div className="hidden md:block absolute top-12 left-[36%] right-[36%] h-px"
               style={{ background: "linear-gradient(90deg, transparent, rgba(124,58,237,0.4), transparent)" }} />
 
             {STEPS.map(({ step, title, desc, icon: Icon }, i) => (
-              <div key={i} className="group p-8 rounded-3xl border transition-all hover:-translate-y-1 relative"
+              <div key={i} className="group p-6 sm:p-8 rounded-3xl border transition-all hover:-translate-y-1 relative"
                 style={{ background: "#f8f9f5", borderColor: "rgba(25,53,42,0.12)" }}>
                 <div className="absolute top-6 right-6 font-black text-4xl" style={{ fontFamily: "var(--font-display)", color: "rgba(25,53,42,0.06)" }}>{step}</div>
                 <div className="w-12 h-12 rounded-2xl flex items-center justify-center mb-6 transition-all group-hover:scale-110"
@@ -378,12 +378,12 @@ export default function App() {
       </section>
 
       {/* ── FEATURES ── */}
-      <section id="features" className="py-24 border-y" style={{ background: "#e5ebe2", borderColor: "rgba(25,53,42,0.12)" }}>
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid md:grid-cols-2 gap-16 items-center">
+      <section id="features" className="py-16 md:py-24 border-y" style={{ background: "#e5ebe2", borderColor: "rgba(25,53,42,0.12)" }}>
+        <div className="max-w-7xl mx-auto px-5 sm:px-6">
+          <div className="grid md:grid-cols-2 gap-10 md:gap-16 items-center">
             <div>
               <p className="text-xs font-bold uppercase tracking-[0.2em] mb-4" style={{ color: "#2f7657" }}>Why Vendas</p>
-              <h2 className="text-4xl md:text-5xl font-black mb-6" style={{ fontFamily: "var(--font-display)", color: "#19352a", lineHeight: 1.1 }}>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-black mb-6" style={{ fontFamily: "var(--font-display)", color: "#19352a", lineHeight: 1.1 }}>
                 Built for trust.<br />Designed for speed.
               </h2>
               <p className="text-base leading-relaxed mb-8" style={{ color: "#607268" }}>
@@ -397,9 +397,9 @@ export default function App() {
               </a>
             </div>
 
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-2 gap-3 sm:gap-4">
               {FEATURES.map(({ icon: Icon, title, desc, highlight }, i) => (
-                <div key={i} className="p-6 rounded-3xl border transition-all hover:-translate-y-1"
+                <div key={i} className="p-4 sm:p-6 rounded-3xl border transition-all hover:-translate-y-1"
                   style={{
                     background: highlight ? "#2f7657" : "#f8f9f5",
                     borderColor: highlight ? "transparent" : "rgba(25,53,42,0.12)",
@@ -415,22 +415,22 @@ export default function App() {
       </section>
 
       {/* ── CATEGORIES ── */}
-      <section id="categories" className="py-24" style={{ background: "#eef1eb" }}>
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-16">
+      <section id="categories" className="py-16 md:py-24" style={{ background: "#eef1eb" }}>
+        <div className="max-w-7xl mx-auto px-5 sm:px-6">
+          <div className="text-center mb-10 md:mb-16">
             <p className="text-xs font-bold uppercase tracking-[0.2em] mb-3" style={{ color: "#2f7657" }}>Browse Everything</p>
-            <h2 className="text-4xl md:text-5xl font-black" style={{ fontFamily: "var(--font-display)", color: "#19352a", lineHeight: 1.1 }}>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black" style={{ fontFamily: "var(--font-display)", color: "#19352a", lineHeight: 1.1 }}>
               Find what you need.<br />Sell what you don't.
             </h2>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
             {CATEGORIES.map(({ icon: Icon, name, count, color, bg }, i) => (
-              <div key={i} className="group p-7 rounded-3xl border transition-all hover:-translate-y-1"
+              <div key={i} className="group p-4 sm:p-7 rounded-3xl border transition-all hover:-translate-y-1"
                 style={{ background: "#f8f9f5", borderColor: "rgba(25,53,42,0.12)" }}>
-                <div className="w-14 h-14 rounded-2xl flex items-center justify-center mb-5 transition-transform group-hover:scale-110"
+                <div className="w-11 h-11 sm:w-14 sm:h-14 rounded-2xl flex items-center justify-center mb-4 sm:mb-5 transition-transform group-hover:scale-110"
                   style={{ background: bg }}>
-                  <Icon className="w-7 h-7" style={{ color }} />
+                  <Icon className="w-5 h-5 sm:w-7 sm:h-7" style={{ color }} />
                 </div>
                 <h4 className="font-bold text-base mb-1" style={{ color: "#19352a" }}>{name}</h4>
                 <p className="text-xs" style={{ color: "#607268" }}>{count}</p>
@@ -441,18 +441,18 @@ export default function App() {
       </section>
 
       {/* ── LAUNCH INVITATION ── */}
-      <section id="launch" className="py-24 border-y" style={{ background: "#e5ebe2", borderColor: "rgba(25,53,42,0.12)" }}>
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-16">
+      <section id="launch" className="py-16 md:py-24 border-y" style={{ background: "#e5ebe2", borderColor: "rgba(25,53,42,0.12)" }}>
+        <div className="max-w-7xl mx-auto px-5 sm:px-6">
+          <div className="text-center mb-10 md:mb-16">
             <p className="text-xs font-bold uppercase tracking-[0.2em] mb-3" style={{ color: "#2f7657" }}>Early access</p>
-            <h2 className="text-4xl md:text-5xl font-black" style={{ fontFamily: "var(--font-display)", color: "#19352a", lineHeight: 1.1 }}>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black" style={{ fontFamily: "var(--font-display)", color: "#19352a", lineHeight: 1.1 }}>
               Help make campus<br />commerce better.
             </h2>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-3 gap-4 sm:gap-6">
             {LAUNCH_VALUES.map(({ icon: Icon, title, text }, i) => (
-              <div key={i} className="group p-8 rounded-3xl border transition-all hover:-translate-y-1"
+              <div key={i} className="group p-6 sm:p-8 rounded-3xl border transition-all hover:-translate-y-1"
                 style={{ background: "#f8f9f5", borderColor: "rgba(25,53,42,0.12)" }}>
                 <div className="w-12 h-12 rounded-2xl flex items-center justify-center mb-6" style={{ background: "#dfe8dc", color: "#2f7657" }}>
                   <Icon className="w-5 h-5" />
@@ -466,16 +466,16 @@ export default function App() {
       </section>
 
       {/* ── DOWNLOAD CTA ── */}
-      <section className="py-28 relative overflow-hidden border-y" style={{ background: "#d7e3d3", borderColor: "rgba(25,53,42,0.12)" }}>
+      <section className="py-20 md:py-28 relative overflow-hidden border-y" style={{ background: "#d7e3d3", borderColor: "rgba(25,53,42,0.12)" }}>
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute -top-24 -right-24 w-96 h-96 rounded-full blur-3xl opacity-20" style={{ background: "#ECFDF3" }} />
           <div className="absolute -bottom-24 -left-24 w-96 h-96 rounded-full blur-3xl opacity-15" style={{ background: "#c4d9bd" }} />
           <div className="absolute inset-0 opacity-[0.04]"
             style={{ backgroundImage: "linear-gradient(rgba(255,255,255,0.8) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.8) 1px, transparent 1px)", backgroundSize: "48px 48px" }} />
         </div>
-        <div className="relative z-10 max-w-3xl mx-auto px-6 text-center">
+        <div className="relative z-10 max-w-3xl mx-auto px-5 sm:px-6 text-center">
           <p className="text-xs font-bold uppercase tracking-[0.25em] mb-6" style={{ color: "#2f7657" }}>Ready to start trading?</p>
-          <h2 className="text-5xl md:text-6xl font-black mb-6" style={{ fontFamily: "var(--font-display)", color: "#19352a", lineHeight: 1.05 }}>
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-black mb-6" style={{ fontFamily: "var(--font-display)", color: "#19352a", lineHeight: 1.05 }}>
             Join the first wave<br />on your campus.
           </h2>
           <p className="text-base mb-10 max-w-sm mx-auto" style={{ color: "#52655a" }}>
@@ -496,8 +496,8 @@ export default function App() {
       </section>
 
       {/* ── FOOTER ── */}
-      <footer className="py-10 border-t" style={{ background: "#12251d", borderColor: "rgba(248,246,240,0.10)" }}>
-        <div className="max-w-7xl mx-auto px-6">
+      <footer className="py-8 sm:py-10 border-t" style={{ background: "#12251d", borderColor: "rgba(248,246,240,0.10)" }}>
+        <div className="max-w-7xl mx-auto px-5 sm:px-6">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <div className="flex items-center gap-2.5">
               <ImageWithFallback src={vendaLogo} alt="Vendas logo" className="w-9 h-9 rounded-xl object-contain" style={{ background: "#fff" }} />
