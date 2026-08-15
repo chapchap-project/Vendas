@@ -272,10 +272,9 @@ export default function App() {
 
             <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black leading-[1.02] mb-6"
               style={{ fontFamily: "var(--font-display)", color: "#19352a" }}>
-              Trade Smart.<br />
-              <span style={{ color: "#2f7657" }}>Study</span>{" "}
-              <span className="relative inline-block">
-                Hard.
+              Your campus.<br />
+              <span className="relative inline-block" style={{ color: "#2f7657" }}>
+                Your marketplace.
                 <span className="absolute -bottom-1 left-0 w-full h-1 rounded-full" style={{ background: "#2f7657" }} />
               </span>
             </h1>
