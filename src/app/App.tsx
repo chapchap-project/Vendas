@@ -506,7 +506,10 @@ export default function App() {
             <p className="text-xs text-center" style={{ color: "#a8b9ac" }}>
               The campus marketplace for students, by students. &copy; {new Date().getFullYear()} Vendas. All rights reserved.
             </p>
-            <span className="text-xs" style={{ color: "#a8b9ac" }}>Built for campus life</span>
+            <div className="flex items-center gap-4 text-xs" style={{ color: "#a8b9ac" }}>
+              <a href="/privacy-policy/" className="underline-offset-4 transition-colors hover:underline hover:text-white">Privacy Policy</a>
+              <span>Built for campus life</span>
+            </div>
           </div>
         </div>
       </footer>
