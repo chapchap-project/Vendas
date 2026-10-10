@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
 import {
   ShoppingBag, Shield, Users, Footprints, Laptop, Sofa,
-  Star, ArrowRight, Check, MapPin, Menu, X, Tag,
-  Zap, Lock, ChevronDown, MessageCircle, TrendingUp, Smartphone, Bell, Grid2X2, Heart, Home, Plus
+  ArrowRight, Check, MapPin, Menu, X, Tag,
+  Zap, Lock, ChevronDown, MessageCircle, TrendingUp, Plus,
+  Wallet, KeyRound, BadgeCheck, RotateCcw
 } from "lucide-react";
 import { ImageWithFallback } from "@/app/components/figma/ImageWithFallback";
 import vendaLogo from "@/imports/vendasicon.jpeg";
@@ -11,6 +12,7 @@ import homepageScreenshot from "@/imports/homepage.jpeg";
 const NAV_LINKS = [
   { label: "Features", href: "#features" },
   { label: "How It Works", href: "#how-it-works" },
+  { label: "Safe Pay", href: "#safe-pay" },
   { label: "Categories", href: "#categories" },
   { label: "Launch", href: "#launch" },
 ];
@@ -57,8 +59,8 @@ const FEATURES = [
   },
   {
     icon: Lock,
-    title: "Trade with care",
-    desc: "Use messages to agree on a deal, then meet in a public place.",
+    title: "Protected payments",
+    desc: "Your money is held safely until you have the item in your hands.",
     highlight: false,
   },
   {
@@ -94,11 +96,27 @@ const LAUNCH_VALUES = [
   },
 ];
 
-const MOCK_LISTINGS = [
-  { name: "Flowers", price: "Ksh 1,500", badge: "Other", icon: Tag, iconColor: "#e36a7c", image: "linear-gradient(135deg, #f7c8cf, #e94f69)" },
-  { name: "Thinkpad", price: "Ksh 20,000", badge: "Electronics", icon: Laptop, iconColor: "#607268", image: "linear-gradient(135deg, #26312d, #5d6f68)" },
-  { name: "Game pad", price: "Ksh 10", badge: "Electronics", icon: Zap, iconColor: "#4e9791", image: "linear-gradient(135deg, #39a99b, #c54a61)" },
-  { name: "Infinix", price: "Ksh 200", badge: "Electronics", icon: Smartphone, iconColor: "#747aa1", image: "linear-gradient(135deg, #30343c, #9298c7)" },
+const SAFE_PAY_STEPS = [
+  {
+    icon: Wallet,
+    title: "Pay in the app",
+    desc: "Pay for the item with M-Pesa at checkout. You pay the listing price — nothing extra.",
+  },
+  {
+    icon: Lock,
+    title: "We hold the money",
+    desc: "Your payment is held safely by Vendas. The seller can't touch it yet.",
+  },
+  {
+    icon: MapPin,
+    title: "Meet and check the item",
+    desc: "Meet at a public campus spot and make sure the item is exactly what you paid for.",
+  },
+  {
+    icon: KeyRound,
+    title: "Share your code",
+    desc: "Give the seller your 6-digit code. Only then is the money released to them.",
+  },
 ];
 
 function PhoneMockup() {
@@ -113,55 +131,6 @@ function PhoneMockup() {
         style={{ background: "#19352a", borderColor: "rgba(248,246,240,0.14)" }}>
         <img src={homepageScreenshot} alt="Vendas app home screen showing listings picked for the user" className="w-full h-full object-cover object-top" />
 
-        <div className="hidden">
-      <div className="flex items-center justify-between px-6 pt-4 pb-2" style={{ color: "#52655a" }}>
-          <span className="text-[10px] font-bold">7:45 AM</span>
-          <div className="w-20 h-5 rounded-full" style={{ background: "#19352a" }} />
-          <span className="text-[9px] font-bold">5G&nbsp; ▰</span>
-        </div>
-
-        <div className="px-4 pt-4 pb-5 border-b" style={{ background: "#eef7f7", borderColor: "#dce9e7" }}>
-          <div className="flex items-center justify-between">
-            <div>
-              <p className="text-[9px] font-black tracking-wide" style={{ color: "#52655a" }}>WELCOME BACK</p>
-              <p className="text-lg font-black mt-1" style={{ color: "#101714" }}>Erick!</p>
-            </div>
-            <div className="flex gap-3 items-center" style={{ color: "#101714" }}>
-              <Bell className="w-6 h-6" strokeWidth={2.5} />
-              <div className="relative"><ShoppingBag className="w-6 h-6" strokeWidth={2.5} /><span className="absolute -top-2 -right-2 w-4 h-4 text-[8px] rounded-full flex items-center justify-center text-white" style={{ background: "#ee4555" }}>1</span></div>
-            </div>
-          </div>
-        </div>
-
-        <div className="px-4 pt-4 pb-3 flex items-center gap-2" style={{ color: "#101714" }}>
-          <Zap className="w-5 h-5" strokeWidth={2.5} />
-          <p className="text-sm font-black">Picked For You</p>
-        </div>
-
-        <div className="flex-1 px-3 grid grid-cols-2 gap-3 overflow-hidden content-start">
-          {MOCK_LISTINGS.map((item) => (
-            <div key={item.name} className="rounded-2xl border p-2.5" style={{ background: "#fff", borderColor: "#d8dfda" }}>
-              <div className="aspect-square rounded-xl mb-3 flex items-center justify-center" style={{ background: item.image }}>
-                <item.icon className="w-8 h-8 text-white/90" strokeWidth={2} />
-              </div>
-              <p className="text-[11px] font-black truncate" style={{ color: "#101714" }}>{item.name}</p>
-              <p className="text-[8px] font-bold uppercase tracking-wide mt-1" style={{ color: "#607268" }}>{item.badge}</p>
-              <div className="flex items-center justify-between mt-3">
-                <p className="text-[10px] font-black" style={{ color: "#101714" }}>{item.price}</p>
-                <div className="w-7 h-7 rounded-full flex items-center justify-center" style={{ background: "#e8f0ea", color: "#19352a" }}><ShoppingBag className="w-3.5 h-3.5" /></div>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        <div className="border-t px-4 py-3 flex items-center justify-between" style={{ borderColor: "#d8dfda", background: "#fff" }}>
-          <Home className="w-5 h-5" style={{ color: "#2f7657" }} />
-          <Grid2X2 className="w-5 h-5" style={{ color: "#7a817d" }} />
-          <div className="w-11 h-11 -mt-7 rounded-full border-4 flex items-center justify-center shadow-lg" style={{ background: "#217642", color: "#fff", borderColor: "#eaf3ec" }}><Plus className="w-6 h-6" strokeWidth={3} /></div>
-          <Heart className="w-5 h-5" style={{ color: "#7a817d" }} />
-          <div className="w-7 h-7 rounded-full flex items-center justify-center text-[8px] font-bold" style={{ background: "#e8f0ea", color: "#2f7657" }}>ER</div>
-        </div>
-        </div>
       </div>
 
       {/* Floating chips */}
@@ -208,7 +177,7 @@ export default function App() {
           <div className="hidden md:flex items-center gap-8">
             {NAV_LINKS.map(({ label, href }) => (
               <a key={label} href={href}
-                className="text-sm font-medium transition-colors hover:text-white"
+                className="text-sm font-medium transition-colors hover:text-[#19352a]"
                 style={{ color: "#607268" }}>
                 {label}
               </a>
@@ -235,7 +204,7 @@ export default function App() {
             style={{ background: "rgba(238,241,235,0.98)", borderColor: "rgba(25,53,42,0.12)" }}>
             {NAV_LINKS.map(({ label, href }) => (
               <a key={label} href={href} onClick={() => setMenuOpen(false)}
-                className="font-medium transition-colors hover:text-white"
+                className="font-medium transition-colors hover:text-[#19352a]"
                 style={{ color: "#607268" }}>
                 {label}
               </a>
@@ -259,18 +228,18 @@ export default function App() {
           style={{ background: "radial-gradient(circle, #c4d9bd, transparent 70%)" }} />
         {/* Grid overlay */}
         <div className="absolute inset-0 pointer-events-none opacity-[0.03]"
-          style={{ backgroundImage: "linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px)", backgroundSize: "60px 60px" }} />
+          style={{ backgroundImage: "linear-gradient(rgba(25,53,42,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(25,53,42,0.5) 1px, transparent 1px)", backgroundSize: "60px 60px" }} />
 
         <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-6 grid md:grid-cols-2 gap-12 lg:gap-20 items-center">
           {/* Left copy */}
-          <div>
+          <div className="min-w-0">
             <div className="inline-flex items-center gap-2 px-3 py-2 rounded-full border text-[10px] sm:text-xs font-bold uppercase tracking-[0.14em] sm:tracking-widest mb-6 sm:mb-8 shadow-sm"
               style={{ background: "#d7e3d3", borderColor: "rgba(47,118,87,0.28)", color: "#1d5a40" }}>
               <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: "#2f7657" }} />
               Now launching for students
             </div>
 
-            <h1 className="text-[2.65rem] sm:text-6xl lg:text-7xl font-black leading-[1.04] mb-5 sm:mb-6"
+            <h1 className="text-[2.2rem] min-[400px]:text-[2.5rem] sm:text-6xl lg:text-7xl font-black leading-[1.04] mb-5 sm:mb-6"
               style={{ fontFamily: "var(--font-display)", color: "#19352a" }}>
               Your campus.<br />
               <span className="relative inline-block" style={{ color: "#2f7657" }}>
@@ -296,7 +265,7 @@ export default function App() {
               </a>
 
               <a href="#how-it-works"
-                className="inline-flex items-center justify-center gap-2 px-7 py-4 rounded-2xl font-medium border transition-colors hover:border-white/20"
+                className="inline-flex items-center justify-center gap-2 px-7 py-4 rounded-2xl font-medium border transition-colors hover:border-[#2f7657]/50 hover:bg-[#2f7657]/5"
                 style={{ borderColor: "rgba(25,53,42,0.18)", color: "#2f7657" }}>
                 See how it works <ChevronDown className="w-4 h-4" />
               </a>
@@ -359,7 +328,7 @@ export default function App() {
           <div className="grid md:grid-cols-3 gap-4 sm:gap-6 relative">
             {/* Connector */}
             <div className="hidden md:block absolute top-12 left-[36%] right-[36%] h-px"
-              style={{ background: "linear-gradient(90deg, transparent, rgba(124,58,237,0.4), transparent)" }} />
+              style={{ background: "linear-gradient(90deg, transparent, rgba(47,118,87,0.35), transparent)" }} />
 
             {STEPS.map(({ step, title, desc, icon: Icon }, i) => (
               <div key={i} className="group p-6 sm:p-8 rounded-3xl border transition-all hover:-translate-y-1 relative"
@@ -373,6 +342,54 @@ export default function App() {
                 <p className="text-sm leading-relaxed" style={{ color: "#607268" }}>{desc}</p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── SAFE PAY ── */}
+      <section id="safe-pay" className="py-16 md:py-24" style={{ background: "#19352a" }}>
+        <div className="max-w-7xl mx-auto px-5 sm:px-6">
+          <div className="text-center mb-10 md:mb-16">
+            <p className="text-xs font-bold uppercase tracking-[0.2em] mb-3" style={{ color: "#8fc4a5" }}>Safe-Trade Payments</p>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black mb-5" style={{ fontFamily: "var(--font-display)", color: "#f8f6f0", lineHeight: 1.1 }}>
+              Your money is safe <br className="hidden sm:block" />until you get your item.
+            </h2>
+            <p className="text-base leading-relaxed max-w-xl mx-auto" style={{ color: "#b9cbbd" }}>
+              No more paying a stranger and hoping they show up. Vendas holds your payment and only releases it when you confirm you've received what you bought.
+            </p>
+          </div>
+
+          <ol className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
+            {SAFE_PAY_STEPS.map(({ icon: Icon, title, desc }, i) => (
+              <li key={title} className="p-6 rounded-3xl border relative"
+                style={{ background: "rgba(248,246,240,0.05)", borderColor: "rgba(248,246,240,0.12)" }}>
+                <div className="flex items-center justify-between mb-5">
+                  <div className="w-12 h-12 rounded-2xl flex items-center justify-center" style={{ background: "rgba(143,196,165,0.15)", color: "#8fc4a5" }}>
+                    <Icon className="w-5 h-5" />
+                  </div>
+                  <span className="text-xs font-bold tracking-widest" style={{ color: "rgba(248,246,240,0.4)" }}>STEP {i + 1}</span>
+                </div>
+                <h3 className="font-bold text-lg mb-2" style={{ color: "#f8f6f0" }}>{title}</h3>
+                <p className="text-sm leading-relaxed" style={{ color: "#b9cbbd" }}>{desc}</p>
+              </li>
+            ))}
+          </ol>
+
+          <div className="mt-6 sm:mt-8 grid md:grid-cols-2 gap-4 sm:gap-5">
+            <div className="flex items-start gap-4 p-6 rounded-3xl" style={{ background: "#2f7657" }}>
+              <RotateCcw className="w-6 h-6 shrink-0 mt-0.5" style={{ color: "#fff" }} />
+              <div>
+                <p className="font-bold mb-1" style={{ color: "#fff" }}>Didn't get your item? You get your money back.</p>
+                <p className="text-sm leading-relaxed" style={{ color: "rgba(255,255,255,0.8)" }}>If you don't receive your item within 24 hours of paying, you're refunded automatically.</p>
+              </div>
+            </div>
+            <div className="flex items-start gap-4 p-6 rounded-3xl border" style={{ borderColor: "rgba(248,246,240,0.12)" }}>
+              <BadgeCheck className="w-6 h-6 shrink-0 mt-0.5" style={{ color: "#8fc4a5" }} />
+              <div>
+                <p className="font-bold mb-1" style={{ color: "#f8f6f0" }}>Simple, upfront pricing</p>
+                <p className="text-sm leading-relaxed" style={{ color: "#b9cbbd" }}>Free for buyers. Sellers pay a 5% Safe-Trade fee (min Ksh 10), only when a sale is completed.</p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -471,7 +488,7 @@ export default function App() {
           <div className="absolute -top-24 -right-24 w-96 h-96 rounded-full blur-3xl opacity-20" style={{ background: "#ECFDF3" }} />
           <div className="absolute -bottom-24 -left-24 w-96 h-96 rounded-full blur-3xl opacity-15" style={{ background: "#c4d9bd" }} />
           <div className="absolute inset-0 opacity-[0.04]"
-            style={{ backgroundImage: "linear-gradient(rgba(255,255,255,0.8) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.8) 1px, transparent 1px)", backgroundSize: "48px 48px" }} />
+            style={{ backgroundImage: "linear-gradient(rgba(25,53,42,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(25,53,42,0.5) 1px, transparent 1px)", backgroundSize: "48px 48px" }} />
         </div>
         <div className="relative z-10 max-w-3xl mx-auto px-5 sm:px-6 text-center">
           <p className="text-xs font-bold uppercase tracking-[0.25em] mb-6" style={{ color: "#2f7657" }}>Ready to start trading?</p>
@@ -508,7 +525,7 @@ export default function App() {
             </p>
             <div className="flex items-center gap-4 text-xs" style={{ color: "#a8b9ac" }}>
               <a href="/privacy-policy/" className="underline-offset-4 transition-colors hover:underline hover:text-white">Privacy Policy</a>
-              <span>Built for campus life</span>
+              <a href="/terms/" className="underline-offset-4 transition-colors hover:underline hover:text-white">Terms of Service</a>
             </div>
           </div>
         </div>

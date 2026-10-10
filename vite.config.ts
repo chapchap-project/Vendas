@@ -36,6 +36,7 @@ export default defineConfig({
       input: {
         main: path.resolve(__dirname, 'index.html'),
         privacyPolicy: path.resolve(__dirname, 'privacy-policy/index.html'),
+        terms: path.resolve(__dirname, 'terms/index.html'),
       },
     },
   },
