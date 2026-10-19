@@ -43,7 +43,7 @@ export default function TermsOfService() {
         <h1 className="text-3xl sm:text-5xl font-black tracking-tight mb-3" style={{ fontFamily: "var(--font-display)", color: "#19352a" }}>
           Terms of Service
         </h1>
-        <p className="mb-10" style={{ color: "#607268" }}>
+        <p className="mb-10" style={{ color: "#55675d" }}>
           <strong>Last Updated:</strong> October 10, 2026
         </p>
 

@@ -47,7 +47,7 @@ export default function PrivacyPolicy() {
         <h1 className="text-3xl sm:text-5xl font-black tracking-tight mb-3" style={{ fontFamily: "var(--font-display)", color: "#19352a" }}>
           Privacy Policy for Vendas
         </h1>
-        <p className="mb-10" style={{ color: "#607268" }}>
+        <p className="mb-10" style={{ color: "#55675d" }}>
           <strong>Last Updated:</strong> April 16, 2026
         </p>
 
