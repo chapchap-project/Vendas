@@ -483,6 +483,8 @@ export default function App() {
 
       {/* ── DOWNLOAD CTA ── */}
       <section className="py-20 md:py-28 relative overflow-hidden border-y" style={{ background: "#2f7657", borderColor: "rgba(25,53,42,0.12)" }}>
+        {/* Keep the travelling phone off-screen until the launch section has scrolled past */}
+        <PhoneExit />
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute -top-24 -right-24 w-96 h-96 rounded-full blur-3xl opacity-20" style={{ background: "#8fc4a5" }} />
           <div className="absolute -bottom-24 -left-24 w-96 h-96 rounded-full blur-3xl opacity-20" style={{ background: "#19352a" }} />

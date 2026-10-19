@@ -119,6 +119,8 @@ function measurePoses(): Pose[] {
     const prev = poses[poses.length - 1];
     if (el.dataset.phoneExit !== undefined) {
       if (!prev) return;
+      // Already off-screen: stay there until this point.
+      if (prev.opacity === 0) { poses.push({ ...prev, stop, centerY }); return; }
       // Slip out on whichever side the phone is already on.
       poses.push({ ...prev, stop, centerY, x: (prev.x < 0 ? -1 : 1) * (vw / 2 + PHONE_W), y: 0, scale: prev.scale * 0.85, rotate: prev.rotate + 8, opacity: 0, chips: 0 });
       return;
