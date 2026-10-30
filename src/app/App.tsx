@@ -1,5 +1,9 @@
 import { useState, useEffect } from "react";
 import { MotionConfig, motion } from "motion/react";
+
+import { Routes, Route } from "react-router";
+import CategoryPage from "@/app/components/CategoryPage";
+
 import {
   ShoppingBag, Shield, Users, Footprints, Laptop, Sofa,
   ArrowRight, Check, MapPin, Menu, X, Tag,
@@ -124,7 +128,7 @@ const SAFE_PAY_STEPS = [
   },
 ];
 
-export default function App() {
+function HomePage() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -437,19 +441,21 @@ export default function App() {
           </Reveal>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
-            {CATEGORIES.map(({ icon: Icon, name, count, color, bg }, i) => (
-              <Reveal key={name} delay={i * 0.08}>
-                <div className="group h-full p-4 sm:p-7 rounded-3xl border transition-transform hover:-translate-y-1"
+              {CATEGORIES.map(({ icon: Icon, name, count, color, bg }, i) => (
+                <Reveal key={name} delay={i * 0.08}>
+                  <a
+                   href={`/categories/${name.toLowerCase()}`}
+                  className="group block h-full p-4 sm:p-7 rounded-3xl border transition-transform hover:-translate-y-1 cursor-pointer no-underline"
                   style={{ background: "#f8f9f5", borderColor: "rgba(25,53,42,0.12)" }}>
-                  <div className="w-11 h-11 sm:w-14 sm:h-14 rounded-2xl flex items-center justify-center mb-4 sm:mb-5 transition-transform group-hover:scale-110"
-                    style={{ background: bg }}>
-                    <Icon className="w-5 h-5 sm:w-7 sm:h-7" style={{ color }} />
-                  </div>
-                  <h4 className="font-bold text-base mb-1" style={{ color: "#19352a" }}>{name}</h4>
-                  <p className="text-xs" style={{ color: "#55675d" }}>{count}</p>
-                </div>
-              </Reveal>
-            ))}
+                    <div className="w-11 h-11 sm:w-14 sm:h-14 rounded-2xl flex items-center justify-center mb-4 sm:mb-5 transition-transform group-hover:scale-110"
+                      style={{ background: bg }}>
+                      <Icon className="w-5 h-5 sm:w-7 sm:h-7" style={{ color }} />
+                    </div>
+                    <h4 className="font-bold text-base mb-1" style={{ color: "#19352a" }}>{name}</h4>
+                    <p className="text-xs" style={{ color: "#55675d" }}>{count}</p>
+                  </a>
+                </Reveal>
+              ))}
           </div>
         </div>
       </section>
@@ -537,5 +543,17 @@ export default function App() {
       </footer>
     </div>
     </MotionConfig>
+  );
+} 
+
+export default function App() {
+  return (
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route path="/categories/shoes" element={<CategoryPage category="Shoes" />} />
+      <Route path="/categories/electronics" element={<CategoryPage category="Electronics" />} />
+      <Route path="/categories/furniture" element={<CategoryPage category="Furniture" />} />
+      <Route path="/categories/clothing" element={<CategoryPage category="Clothing" />} />
+    </Routes>
   );
 }
